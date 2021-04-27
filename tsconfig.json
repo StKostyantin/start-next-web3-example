@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "..",
+    "baseUrl": "./",
     "target": "es6",
     "module": "esnext",
     "moduleResolution": "node",
@@ -25,7 +25,7 @@
     }
   },
   "include": [
-    "",
+    "tsconfig",
     "../typings",
     "../global.d.ts",
     "../next-env.d.ts",
@@ -33,6 +33,6 @@
     "**/*.tsx"
   ],
   "exclude": [
-    "../node_modules"
+    "./node_modules"
   ]
 }

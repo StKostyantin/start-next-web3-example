@@ -4,7 +4,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
-    project: './src/tsconfig.json',
+    project: './tsconfig.json',
     createDefaultProgram: true,
     ecmaFeatures: {
       jsx: true,
@@ -40,6 +40,7 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 0,
     //
     // for styles['abc']
+    '@typescript-eslint/rule-name': 'error',
     '@typescript-eslint/dot-notation': 0,
     '@typescript-eslint/no-unused-expressions': 0,
     '@typescript-eslint/no-unused-vars': 0,
