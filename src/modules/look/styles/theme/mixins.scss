@@ -1,0 +1,9 @@
+@mixin page-spacing {
+  padding: 180px 0 0;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: $sp_bp) {
+    padding: 140px 0 0;
+  }
+}

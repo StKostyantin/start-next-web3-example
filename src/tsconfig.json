@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "..",
     "target": "es6",
     "module": "esnext",
     "moduleResolution": "node",
@@ -25,12 +25,14 @@
     }
   },
   "include": [
-    "src",
-    "typings",
-    "global.d.ts",
-    "next-env.d.ts",
+    "",
+    "../typings",
+    "../global.d.ts",
+    "../next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "../node_modules"
+  ]
 }
