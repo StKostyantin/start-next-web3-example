@@ -55,7 +55,7 @@ export default function Home() {
       <Button disabled={isLoadingIncrement} onClick={handleIncrement} type="primary">
         increment
       </Button>
-      <Button type="primary" disabled={isLoadingDecrement} onClick={handleDecrement}>
+      <Button type="asdasd" disabled={isLoadingDecrement} onClick={handleDecrement}>
         decrement
       </Button>
     </div>
