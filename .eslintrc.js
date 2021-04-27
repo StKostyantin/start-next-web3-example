@@ -40,7 +40,6 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 0,
     //
     // for styles['abc']
-    '@typescript-eslint/rule-name': 'error',
     '@typescript-eslint/dot-notation': 0,
     '@typescript-eslint/no-unused-expressions': 0,
     '@typescript-eslint/no-unused-vars': 0,
