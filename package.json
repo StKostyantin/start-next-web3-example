@@ -12,6 +12,9 @@
   "simple-git-hooks": {
     "pre-commit": "yarn tsc-lint && yarn lint-staged"
   },
+  "lint-staged": {
+    "src/**/*.(ts|js)?(x)": ["prettier --write", "eslint"]
+  },
   "dependencies": {
     "@ethersproject/address": "^5.1.0",
     "@ethersproject/bignumber": "^5.1.1",
