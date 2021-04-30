@@ -5,4 +5,5 @@ export { default as useInactiveListener } from './useInactiveListener';
 export { default as useEagerConnect } from './useEagerConnect';
 export { default as useActiveWeb3React } from './useActiveWeb3React';
 export { default as useDidMountEffect } from './useDidMountEffect';
-export * from './useContract';
+export * as useContractEthers from './useContractEthers';
+export * as useContractWeb3 from './useContractWeb3';

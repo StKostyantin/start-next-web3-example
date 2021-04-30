@@ -4,9 +4,9 @@ import { useMutation, useQuery } from 'react-query';
 import { BigNumber as BigNumberETH } from '@ethersproject/bignumber';
 import { TransactionReceipt } from '@ethersproject/providers';
 
-import { useTestContract } from '@modules/common/hooks';
+import { useContractEthers } from '@modules/common/hooks';
 import WalletsConnect from '@modules/web3/containers/WalletsConnect';
-import { buildQuery } from '@utils/contracts';
+import { buildQuery } from '@utils/contracts/ethersContracts';
 
 import styles from './index.module.scss';
 
@@ -19,7 +19,7 @@ export default function Home() {
       incrementCounter: incrementCounterEstimate,
       decrementCounter: decrementCounterEstimate,
     },
-  } = useTestContract();
+  } = useContractEthers.useTestContract();
 
   const { data: countRes, refetch: counterRefetch } = useQuery(
     'counter',
@@ -33,6 +33,9 @@ export default function Home() {
   const { mutate: onDecrement, data: resDecrement, isLoading: isLoadingDecrement } = useMutation(
     (): Promise<TransactionReceipt> => buildQuery(decrementCounter, [], decrementCounterEstimate),
   );
+
+  console.log('resDecrement', resDecrement);
+  console.log('isLoadingDecrement', isLoadingDecrement);
 
   useEffect(() => {
     if (resDecrement || onIncrement) {

@@ -33,32 +33,24 @@ export const buildQuery = async <T>(
   options: any = {},
 ): Promise<T> => {
   try {
-    let res;
+    let tx;
     if (estimateGas) {
       const gusLimit = await estimateGas(...args, options);
-      res = await method(...args, {
+      tx = await method(...args, {
         gasLimit: calculateGasMargin(gusLimit as BigNumberETH),
         ...options,
       });
     } else {
-      res = await method(...args, options);
+      tx = await method(...args, options);
     }
-    if (res?.wait) {
-      return res.wait();
+    if (tx?.wait) {
+      return tx.wait(1);
     }
-    return res;
+    return tx;
   } catch (err) {
     if (estimateGas) {
       throw new Error(err.error.message);
     }
     throw new Error(err.message);
   }
-};
-
-export enum ContractsNames {
-  TEST = 'TEST',
-}
-
-export const contracts: { [contracts in ContractsNames]: string } = {
-  [ContractsNames.TEST]: '0x2B76c45c7341ea991bF2782a5004cDF7Eb120C3d',
 };

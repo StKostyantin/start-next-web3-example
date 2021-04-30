@@ -1,3 +1,4 @@
+import Web3 from 'web3';
 import { Web3Provider } from '@ethersproject/providers';
 import { UnsupportedChainIdError } from '@web3-react/core';
 import {
@@ -5,7 +6,26 @@ import {
   UserRejectedRequestError as UserRejectedRequestErrorInjected,
 } from '@web3-react/injected-connector';
 
-import { injected, network, POLLING_INTERVAL, walletconnect } from './connectors';
+import {
+  injected,
+  network,
+  POLLING_INTERVAL,
+  walletconnect,
+  NETWORK_URL_HTTPS,
+  NETWORK_URL_WSS,
+} from './connectors';
+
+export const HttpsWeb3Provider = new Web3.providers.HttpProvider(NETWORK_URL_HTTPS);
+export const WssWeb3Provider = new Web3.providers.WebsocketProvider(NETWORK_URL_WSS);
+
+export const DEFAULT_WEB3_PROVIDER = HttpsWeb3Provider;
+
+export const HttpsWeb3 = new Web3(process.browser ? Web3.givenProvider : HttpsWeb3Provider);
+export const WssWeb3 = new Web3(WssWeb3Provider);
+
+export const DEFAULT_WEB3 = HttpsWeb3;
+
+export const WEB3_ERROR_VALUE = 3.9638773911973445e75;
 
 export const NetworkContextName = 'INFURA';
 
